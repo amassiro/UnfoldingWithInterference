@@ -56,14 +56,14 @@ class UnfoldingWithInterference(PhysicsModel):
     def doParametersOfInterest(self):
         """Create POI and other parameters, and define the POI set."""
         
-        # trilinear Higgs couplings modified 
-        self.modelBuilder.doVar("r[1,-10,10]")
-        self.poiNames = "r"
+        #self.modelBuilder.doVar("r[1,-10,10]")
+        #self.poiNames = "r"
 
 
         for signal_strength in range(0, self.numSignals):
           self.modelBuilder.doVar("CMS_" + str(self.nameSignals[signal_strength]) + "_mu[1, 0 ,100]")
-          self.poiNames += ",CMS_" + str(self.nameSignals[signal_strength]) + "_mu"
+          if signal_strength == 0: self.poiNames += "CMS_" + str(self.nameSignals[signal_strength]) + "_mu"
+          else :                   self.poiNames += ",CMS_" + str(self.nameSignals[signal_strength]) + "_mu"
 
         
         for signal_strength in range(0, self.numSignals):
