@@ -24,6 +24,31 @@
 
     
 
+# Options
+
+Definition of the different options available.
+
+Definition of the signal samples (names in the datacard):
+
+
+    --PO nameSignals=mysig
+    
+they can be more than one (separated by a comma):
+
+    --PO nameSignals=mysig,mysecondsig
+
+Definition of background samples that interfere with the signals (with all the signals):
+
+    --PO nameBackgrounds=bkg
+
+and also in this case the backgrounds can be more than one (separated by a comma).
+
+Note that in the datacard there must be the "signal + background + interference" samples, for each signal:
+
+    XX as signal
+    sbi_XX is the signal + background + interference
+
+If more than one background is defined previously, all of them must be added together in the sample "sbi_XX"
 
 
     
